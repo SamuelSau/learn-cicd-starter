@@ -28,8 +28,8 @@ jobs:
       - name: Check for formatting in Go
         run: test -z $(go fmt ./...)
 
-      - name: Run Staticcheck
-        uses: dominikh/staticcheck-action@v1
-        with:
-          version: "latest"
-          working-directory: ${{ github.workspace }}
+      - name: Install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+
+      - name: Run staticcheck
+        run: staticcheck ./...
