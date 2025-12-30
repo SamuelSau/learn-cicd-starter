@@ -29,6 +29,6 @@ jobs:
         run: test -z $(go fmt ./...)
 
       - name: Run Staticcheck
-        uses: actions/staticcheck@v0.1.0
+        uses: dominikh/staticcheck-action@v1
         with:
-          args: ./...
+          version: "latest"
