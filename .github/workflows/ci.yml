@@ -25,7 +25,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check for formatting in Go
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.1"
+
+      - name: Check formatting in Go
         run: test -z $(go fmt ./...)
 
       - name: Install staticcheck
